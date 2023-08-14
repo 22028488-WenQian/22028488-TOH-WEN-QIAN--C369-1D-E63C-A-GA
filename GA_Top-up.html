@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=0.75">
+
+
+  <title>Top up Page </title>
+
+
+</head>
+
+<style>
+  body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  }
+
+
+  .top-section img {
+    margin: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+
+  .top-section h1 {
+    display: inline-block;
+    color: rgb(246, 246, 248);
+    margin-top: 20px;
+    vertical-align: middle;
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+    left: 650px;
+
+  }
+
+  .account-info {
+    font-size: 25px;
+    color: white;
+    padding: 20px;
+    margin: 5px;
+    font-weight: bold;
+    position: relative;
+    margin-top: 0;
+    text-align: left;
+    border: 2px solid white;
+    border-radius: 5px;
+    width: fit-content;
+    position: relative;
+    left: 600px;
+
+  }
+
+
+
+
+
+
+  .Right-Buttons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    /* To align the buttons in a row */
+
+
+  }
+
+  .Right-Buttons img {
+
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+    background-color: rgb(26, 76, 238);
+    padding: 10px;
+
+  }
+
+  .bottom-section {
+    justify-content: center;
+    display: flex;
+    background-color: rgb(55, 99, 188);
+    height: 50vh;
+    width: 100%;
+    margin-top: 35px;
+
+
+
+  }
+
+  .bottom-section img {
+
+    height: 200px;
+    width: 250px;
+  }
+
+  .bottom-section figure {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+    margin-right: 200px;
+    margin-left: 0;
+    position:relative;
+    top:80px;
+    /*center vertically */
+
+  }
+
+  .bottom-section button {
+
+    background-color: rgb(25, 168, 25);
+    border-radius: 5px;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    width:300px;
+
+  }
+
+  .bottom-section p {
+
+    color: aliceblue;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px;
+    position: relative;
+    left: -150px;
+  }
+</style>
+
+
+</head>
+
+<body>
+
+  <div class="Right-Buttons">
+    <a href="GA_Local.html">
+      <img src="Home.png" alt="home button"></a>
+
+    <a href="GA_Analysis.html">
+      <img src="Chart.png" alt="chart button"></a>
+
+
+    <a href="index.html">
+      <img src="logout.png" alt="logout button"></a>
+
+  </div>
+
+
+
+  <div class="top-section">
+    <h1> <img src="SKY transact.png" alt="Account Image" width="50px" height="50px">
+      SKY TRANSACT</h1>
+
+    <div class="account-info">
+      <p>User Name: Skyler Toh</p>
+      <p>Account Number: <input type="text" value="22028488" readonly></p>
+      <p>Public Key: <input type="text" value="iowh990998hwuidao124b" readonly></p>
+      <p class="private-field">Private Key: <input type="password" value="89h29fbeu29hdq0dhwfebfbeu424h29"
+          id="privateKey" readonly>
+        <button type="button" id="viewButton-privateKey" onclick="View('privateKey')">View</button>
+      </p>
+      <p class="private-field">Balance: <input type="password" value="$15000" id="balance" readonly>
+        <button type="button" id="viewButton-balance" onclick="View('balance')">View</button>
+      </p>
+    </div>
+
+    <div class="bottom-section">
+
+
+      <p>Top up with : </p>
+
+      <figure>
+
+        <img src="Card.png" alt="Credit Debit Card">
+
+        <button>International Transfer</button>
+
+      </figure>
+
+      <figure>
+
+        <img src="Banking.png" alt="Credit Debit Card">
+
+        <button>Online Banking</button>
+
+      </figure>
+
+    </div>
+
+    <script>
+      //view function to allow user to view private field when button is clicked 
+      function View(elementId) {
+        var privateField = document.getElementById(elementId);
+
+        //button id is expected to be in format viewButton-
+        var viewButton = document.getElementById("viewButton-" + elementId);
+
+        //check if private field type is "password"
+        if (privateField.type === "password") {
+          //change the field type to text if it is password
+          privateField.type = "text";
+          // change the view button text to hide 
+          viewButton.innerText = "Hide";
+        } else {
+          //if the field type is not password , change it back to password to hide the content
+          privateField.type = "password";
+          // change the button text to view
+          viewButton.innerText = "View";
+        }
+      }
+    </script>
+</body>
+
+</html>

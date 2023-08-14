@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.75">
+  <title> International Transaction Page </title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background-color: rgb(245, 158, 45);
+    }
+
+
+
+    .left-screen {
+      width: 40%;
+      height:110vh;
+      background-color: black;
+      float: left;
+     
+    }
+
+    .left-screen img {
+      margin: 10px;
+      border-radius: 10px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .right-screen {
+
+      position: relative;
+      width: 60%;
+      height: 110vh;
+      display: flex;
+      align-items: center;
+    }
+
+
+
+
+    .left-screen h1 {
+      display: inline-block;
+      color: rgb(94, 94, 250);
+      margin-top: 20px;
+      vertical-align: middle;
+      font-size: 25px;
+      text-decoration: underline;
+    }
+
+    .account-info {
+      font-size: 25px;
+      color: white;
+      padding: 20px;
+      margin: 5px;
+      font-weight: bold;
+      position: relative;
+      margin-top: 0;
+    }
+
+    .top-up button {
+      background-color: rgb(51, 168, 51);
+      width: auto;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .Transaction-History h1 {
+      color: rgb(71, 176, 71);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+
+    }
+
+
+    .Transaction-History {
+      font-size: 10px;
+      font-weight: normal;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+
+    /* CSS styles for your page */
+    table {
+      width: 400px;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      border-radius: 10px;
+      background-color: #ddd;
+      margin: 5px;
+
+    }
+
+    th,
+    td {
+      padding: 2px;
+      text-align: left;
+    }
+
+    .image-container {
+      display: flex;
+      position: relative;
+      top: -300px;
+      right: -150px;
+
+
+    }
+
+    .image-container img {
+      height: 80px;
+      width: 80px;
+
+    }
+
+
+
+
+    .image-container figcaption {
+      position: absolute;
+      bottom: -30px;
+      right: -10px;
+      width: 150%;
+      text-align: center;
+      color: white;
+      font-size: 14px;
+    }
+
+
+
+    .image-container figure {
+      position: relative;
+      width: 100px;
+      margin: 70px;
+    }
+
+    .interactive-section {
+      display: flex;
+      background-color: white;
+      width: 100%;
+      height: 550px;
+      border-radius: 10px;
+      position: absolute;
+      top: 200px;
+      left: 0px;
+
+    }
+
+
+
+    .recipient-section {
+
+      flex: 4;
+      /* Use flex property to occupy available space and adjust width */
+      align-items: center;
+      /* Center the content horizontally */
+      flex-direction: column;
+      /* Align content in column direction */
+      justify-content: center;
+      /* Center the content vertically */
+      border-radius: 10px;
+      margin: 20px;
+      margin-right: 0;
+      position: relative;
+
+
+
+
+    }
+
+    .transaction-section {
+
+      background-color: rgb(245, 158, 45);
+      flex: 6;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 10px;
+      height: 510px;
+      margin: 20px;
+      margin-left: 0;
+
+
+    }
+
+    select {
+      padding: 15px;
+      width: 350px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+
+    }
+
+    .transact-info {
+      position: relative;
+      left: 10px;
+      bottom: 5px;
+
+    }
+
+    .transaction-section input {
+
+      position: relative;
+      width: 60%;
+      padding: 10px;
+      margin: 10px;
+
+    }
+
+    .input-additional-info {
+
+      position: relative;
+      width: 60%;
+      padding: 10px;
+      margin: 10px;
+
+    }
+
+
+    .recipient-section input {
+      position: relative;
+      width: 60%;
+      padding: 10px;
+      margin: 5px;
+    }
+
+    .transaction-section label {
+      color: white;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+    }
+
+
+
+    .rep-info {
+
+      position: relative;
+      right: -25px;
+
+    }
+
+    .Right-Buttons {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      /* To align the buttons in a row */
+    }
+
+    .Transaction-details {
+
+      background-color: rgb(233, 242, 242);
+      padding: 10px;
+      height: 75%;
+      width: 50%;
+      position: relative;
+      left: 25%;
+      margin-top: 20px;
+
+
+      border: 2px solid rgb(234, 231, 231);
+      border-radius: 5px;
+
+    }
+
+    .confirm-transaction {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+
+    }
+
+    .additional-info {
+
+      background-color: rgb(233, 242, 242);
+      padding: 20px;
+      height: 90%;
+      width: 90%;
+      position: relative;
+      top: -15px;
+      margin: 20px;
+      border: 2px solid rgb(234, 231, 231);
+      border-radius: 5px;
+
+
+    }
+
+    .input-container label {
+      width: 150px;
+      /* Adjust the width of the labels as needed */
+      text-align: left;
+      /* Align the label text to the left */
+      margin-right: 30px;
+      /* Add some spacing between the label and input */
+    }
+
+    .input-container input {
+      flex: 1;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+
+    .successful {
+
+      position: relative;
+      left: 180px;
+      width: 50%;
+
+    }
+
+    .successful-details {
+
+      border-radius: 5px;
+      border: 3px black;
+      border: 2px solid rgb(234, 231, 231);
+      height: 55%;
+      background-color: rgb(233, 242, 242);
+      padding: 10px;
+    }
+
+    .successful figure {
+
+      position: relative;
+      top: -40px;
+      left: 50px;
+    }
+
+    .submit-request {
+
+      position: relative;
+      top: -20px;
+    }
+
+    .request-info {
+      width: 300px;
+      height: 200px;
+      overflow: auto;
+      /* Use 'auto' to show scrollbars  when necessary */
+      border: 1px solid #ccc;
+      padding: 20px;
+      position: relative;
+      left: 180px;
+
+
+    }
+
+    .request figure {
+
+      position: relative;
+      top: -40px;
+      right: -250px;
+
+
+    }
+
+
+    .large-transact-info {
+      max-height: 300px;
+      overflow: auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+
+    .request-info {
+      max-height: 300px;
+      overflow: auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+  <script>
+    function View(elementId) {
+      var privateField = document.getElementById(elementId);
+      var viewButton = document.getElementById("viewButton-" + elementId);
+
+      if (privateField.type === "password") {
+        privateField.type = "text";
+        viewButton.innerText = "Hide";
+      } else {
+        privateField.type = "password";
+        viewButton.innerText = "View";
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+  <div class="left-screen">
+    <img src="SKY transact.png" alt="Account Image" width="50px" height="50px">
+    <h1>Account Information</h1>
+
+    <div class="account-info">
+      <p>User Name: Skyler Toh</p>
+      <p>Account Number: <input type="text" value="22028488" readonly></p>
+      <p>Public Key: <input type="text" value="iowh990998hwuidao124b" readonly></p>
+      <p class="private-field">Private Key: <input type="password" value="89h29fbeu29hdq0dhwfebfbeu424h29"
+          id="privateKey" readonly>
+        <button type="button" id="viewButton-privateKey" onclick="View('privateKey')">View</button>
+      </p>
+      <p class="private-field">Balance: <input type="password" value="$1000.00" id="balance" readonly>
+        <button type="button" id="viewButton-balance" onclick="View('balance')">View</button>
+      </p>
+
+      <div class="top-up">
+        <a href="GA_Top-up.html"><button type="button">Top Up Account</button></a>
+      </div>
+
+      <div class="Transaction-History">
+        <h1>Transaction History</h1>
+
+        <table>
+          <tr>
+            <th colspan="2">Transaction Details</th>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>01/06/2023</td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td>20:35</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td style="color:green;">Successful</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>$88.00</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td>SKY098831</td>
+          </tr>
+          <tr>
+            <td>Balance</td>
+            <td>$15,000.00</td>
+          </tr>
+        </table>
+
+
+        <table>
+          <tr>
+            <th colspan="2">Transaction Details</th>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>01/06/2023</td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td>20:35</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td style="color:green;">Successful</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>$88.00</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td>SKY098831</td>
+          </tr>
+          <tr>
+            <td>Balance</td>
+            <td>$15,000.00</td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <th colspan="2">Transaction Details</th>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>01/06/2023</td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td>20:35</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td style="color:green;">Successful</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>$88.00</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td>SKY098831</td>
+          </tr>
+          <tr>
+            <td>Balance</td>
+            <td>$15,000.00</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-screen">
+
+
+    <div class="Right-Buttons">
+      <a href="GA_Local.html">
+        <img src="Home.png" alt="home button"
+          style="height:20px ; width: 20px;margin-right: 10px; background-color: rgb(26, 76, 238); padding: 10px;"></a>
+
+      <a href="GA_Analysis.html">
+        <img src="Chart.png" alt="chart button"
+          style="height:20px ; width: 20px;margin-right: 10px; background-color: rgb(26, 76, 238); padding: 10px;"></a>
+
+
+      <a href="index.html">
+        <img src="logout.png" alt="home button"
+          style="height:20px ; width: 20px;margin-right: 10px; background-color: rgb(26, 76, 238); padding: 10px;"></a>
+
+    </div>
+
+    <div class="image-container">
+      <figure>
+
+        <img src="Local.png" alt="local">
+        <a href="GA_Local.html">
+          <figcaption><img src="select.png" alt="local" style="height:15px ; width: 15px; margin-right: 5px;">Local
+            Transfer</figcaption>
+        </a>
+      </figure>
+
+      <figure>
+
+        <img src="International.png" alt="International">
+
+        <a href="GA_International.html">
+          <figcaption><img src="select.png" alt="local"
+              style="height:15px ; width: 15px;margin-right: 5px;">International Transfer</figcaption>
+        </a>
+      </figure>
+
+      <figure>
+
+        <img src="currencies.png" alt="currency">
+
+        <a href="GA_currency.html">
+          <figcaption><img src="select.png" alt="local" style="height:15px ; width: 15px;margin-right: 5px;">Currency
+            Exchange</figcaption>
+        </a>
+      </figure>
+
+      <div class="interactive-section">
+        <section class="recipient-section" id="recipientForm">
+          <h2
+            style="background-color:rgb(245, 158, 45); color: white; padding: 10px; border-radius: 5px; width: 80%; position: relative; left: 10px;">
+            Add New Recipient</h2>
+          <div class="rep-info">
+            <input type="text" placeholder="Recipient Name">
+            <input type="text" placeholder="Account Number/Email">
+            <input type="text" placeholder="Public Key">
+          </div>
+          <a href="GA_International.html"><button type="button"
+              style="font-weight:bold; color:white; background-color: rgb(72, 222, 72); border-radius: 3px;margin:5px ;width: 70px;height: 35px; position:relative; right:-75px;border: none;">Add</button></a>
+          <hr style="background-color: black; width: 85%; height: 1px; position: relative; left: -15px;">
+          <p style="margin: 30px; position: relative; right: -20px;"> Scan QR code to add </p>
+          <img src="QR.png" alt="QR-Code" style="height: 100px; width: 100px; position: relative; left: 70px;">
+        </section>
+
+        <section class="transaction-section" id="transactionForm">
+          <div class="transact-info">
+            <h2 style="color: white; position: relative; right: -50px;">International Transfer !</h2>
+            <label for="fund-source" style="font-size: 14px; display: block; margin: 5px; color: white;">Fund
+              Source:</label>
+            <select name="Select fund-source" id="fund-source">
+              <option value="" disabled selected>Select fund-source</option>
+              <option value="Checking">SKY22028488</option>
+              <option value="savings">Savings</option>
+            </select>
+            <label for="recipient"
+              style="font-size: 14px; display: block; margin: 5px; color: white;">Recipient:</label>
+            <select name="recipient" id="recipient">
+              <option value="" disabled selected>Select Recipient</option>
+              <option value="Bloom Floris">Bloom Florist</option>
+              <option value="Teh Jia Qian">Teh Jia Qian</option>
+              <option value="Tammy Lim">Tammy Lim</option>
+              <option value="Kathy Lim">Kathy Lim</option>
+              <option value="Poh Wei Jun">Poh Wei Jun</option>
+            </select>
+
+            <label for="currency" style="font-size: 14px; display: block; margin: 5px; color: white;"> Currency
+              :</label>
+            <select name="Select Currency" id="currencies">
+              <option value="" disabled selected>Select currency</option>
+              <option value="USD">USD</option>
+              <option value="SGD">SGD</option>
+              <option value="MYR">MYR</option>
+              <option value="AUD">AUD</option>
+              <option value="EUR">EUR</option>
+            </select>
+
+            <div class="input-transaction-info">
+              <label> Amount:
+                <input type="text" id="amountInput" placeholder="Enter amount to transfer" required>
+              </label>
+
+
+              <label> Message:
+                <input type="text" id="messageInput" placeholder="Enter Message (optional)">
+              </label>
+
+            </div>
+            <button onclick="showTransactionDetails()"
+              style="font-weight:bold;color:white;background-color: rgb(72, 222, 72); border-radius: 3px;margin-top:0 ;width:100px;height: 40px; position:relative; right:-75px; position: relative; right: -120px;border: none;">Next</button>
+          </div>
+        </section>
+
+        <div class=Transaction-details id="transactionDetails" style="display: none;">
+
+
+          <h3>Transaction Details:</h3>
+          <p>From</p>
+          <p>Username: Skyler Toh</p>
+          <p>Account number: SKY22028488</p>
+          <p>To</p>
+          <p>Recipient: <span id="Tdetails-Name"></span></p>
+          <p>Amount: <span id="Tdetails-Amount"></span></p>
+          <p>currency: <span id="Tdetails-currencies"></span></p>
+          <p>Message: <span id="Tdetails-Message"></span></p>
+          <p>Receive in: 15 minutes</p>
+          <p>fee charged: $2 SGD</p>
+
+
+
+          <div class="confirm-transaction">
+
+
+            <input type="password" id="pinInput" required placeholder=" Enter PIN to confirm "
+              style="height: 30px; margin-top:20px; margin-bottom: 10px;">
+
+
+            <button onclick="confirmTransaction()"
+              style="background-color: rgb(64, 220, 59); color: white; font-weight: bold; width:200px; height:30px; border-radius: 5px;border: none;">Confirm
+              Transaction</button>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="additional-info" id="additionalInfo" style="display: none;">
+
+          <div class="large-transact-info">
+
+            <h3>Transaction Details:</h3>
+            <p>From</p>
+            <p>Username: Skyler Toh</p>
+            <p>Account number: SKY22028488</p>
+            <p>To</p>
+            <p>Recipient: <span id="LAmount-Name"></span></p>
+            <p>Amount: <span id="LAmount-Amount"></span></p>
+            <p>currency: <span id="LAmount-currencies"></span></p>
+            <p>Message: <span id="LAmount-Message"></span></p>
+
+          </div>
+
+
+          <p style="color: red;">Please enter additional information for large amount transaction</p>
+
+          <div class="input-additional-info">
+
+            <div class="input-container">
+              <label for="nric">NRIC:</label><input type="text" id="nric" placeholder="Enter NRIC" required>
+            </div>
+
+            <div class="input-container">
+              <label for="address">Address:</label><input type="text" id="address" placeholder="Enter Address" required>
+            </div>
+
+            <div class="input-container">
+              <label for="reason">Reason for Transaction:</label><input type="text" id="reason"
+                placeholder="Enter Reason" required>
+            </div>
+
+          </div>
+
+          <div class="submit-request">
+            <input type="password" id="pinInput-request" required placeholder=" Enter PIN to confirm "
+              style="height: 30px; margin:20px">
+            <button onclick="submitRequest()"
+              style="background-color: rgb(64, 220, 59); color: white; font-weight: bold; width: 200px; height: 30px; border-radius: 5px;">
+              Submit Request</button>
+
+
+
+          </div>
+
+
+        </div>
+
+        <div class=successful id="success-transaction" style="display: none;">
+
+          <h2 style="color: rgb(60, 78, 237);">Transaction Status : </h2>
+
+          <div class=successful-details id="successful-transactionDetails">
+
+
+
+            <h3>Transaction Details:</h3>
+            <p>From</p>
+            <p>Username: Skyler Toh</p>
+            <p>Account number: SKY22028488</p>
+            <p>To</p>
+            <p>Recipient: <span id="recipientName-success"></span></p>
+            <p>Amount: <span id="transactionAmount-success"></span></p>
+            <p>Message: <span id="transactionMessage-success"></span></p>
+
+
+
+            <figure>
+              <img src="successful.png" alt="transaction successful">
+              <figcaption style="color: rgb(22, 196, 22); font-size: 20px; font-weight: bolder; border: none;">
+                Successful !</figcaption>
+
+            </figure>
+
+            <p id="currentdate-success" style="position: relative; bottom: 80px; left: -40px; width: 150%;"></p>
+
+
+          </div>
+
+
+
+
+        </div>
+
+        <div class=request id="request-transaction" style="display: none;">
+
+          <h2 style="color: rgb(60, 78, 237);">Transaction Status : </h2>
+
+          <div class=request-details id="successful-transactionDetails">
+
+
+            <div class="request-info">
+              <h3>Transaction Details:</h3>
+              <p>From</p>
+              <p>Username: Skyler Toh</p>
+              <p>Account number: SKY22028488</p>
+              <P>NRIC: <span id="nric-request"></span></P>
+              <P>Address: <span id="address-request"></span></P>
+              <P>Reason for transaction: <span id="reason-request"></span></P>
+              <hr>
+              <p>To</p>
+              <p>Recipient: <span id="request-Name"></span></p>
+              <p>Amount: <span id="request-Amount"></span></p>
+              <p>currency: <span id="request-currencies"></span></p>
+              <p>Message: <span id="request-Message"></span></p>
+
+
+
+            </div>
+
+            <figure>
+              <img src="Orange-tick.png" alt="submit request">
+              <figcaption
+                style="color: rgb(226, 145, 53); font-size: 20px; font-weight: bolder; position:relative; top:10px;left:-35px;">
+                Request submitted !</figcaption>
+
+
+            </figure>
+
+            <p id="currentdate-request" style="position: relative; bottom:80px; right:-150px;width:150%;"></p>
+
+
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <script>
+
+    function showTransactionDetails() {
+      var recipient = document.getElementById("recipient").value;
+      var amount = parseFloat(document.getElementById("amountInput").value);
+      var message = document.getElementById("messageInput").value;
+      var currency = document.getElementById("currencies").value;
+
+
+      if (amount >= 10000) {
+        document.getElementById("LAmount-Name").innerText = recipient;
+        document.getElementById("LAmount-Amount").innerText = amount;
+        document.getElementById("LAmount-Message").innerText = message;
+        document.getElementById("LAmount-currencies").innerText = currency;
+
+
+
+        document.getElementById("transactionForm").style.display = "none";
+        document.getElementById("recipientForm").style.display = "none";
+        document.getElementById("transactionDetails").style.display = "none"; 
+
+        document.getElementById("additionalInfo").style.display = "block";
+
+      } else {
+         // Amount is not larger than $10,000, proceed with showing transaction details
+        document.getElementById("Tdetails-Name").innerText = recipient;
+        document.getElementById("Tdetails-Amount").innerText = amount; 
+        document.getElementById("Tdetails-Message").innerText = message;
+        document.getElementById("Tdetails-currencies").innerText = currency;
+
+        document.getElementById("transactionForm").style.display = "none";
+        document.getElementById("recipientForm").style.display = "none";
+        document.getElementById("additionalInfo").style.display = "none"; 
+
+        document.getElementById("transactionDetails").style.display = "block";
+
+      }
+    }
+
+    function confirmTransaction() {
+      var pinInput = document.getElementById("pinInput").value;
+
+      var recipient = document.getElementById("recipient").value;
+      var amount = parseFloat(document.getElementById("amountInput").value);
+      var message = document.getElementById("messageInput").value;
+
+
+      if (pinInput === "1234") {
+
+        document.getElementById("recipientName-success").innerText = recipient;
+        document.getElementById("transactionAmount-success").innerText = amount;
+        document.getElementById("transactionMessage-success").innerText = message;
+
+        displayDate();
+
+        alert("Transaction Successful!\n\nAmount: " + amount + "\nRecipient:" + recipient + "\nThank you for choosing SKY TRANSACT! If you notice any unauthorized activity, please call our SkyTransact hotline at xxxx-xxxx");
+
+
+        document.getElementById("success-transaction").style.display = "block";
+        document.getElementById("transactionDetails").style.display = "none";
+      } else {
+        // If PIN is incorrect, show an error message 
+        var errorMessage = document.createElement("p");
+        errorMessage.textContent = "Incorrect PIN. Please try again.";
+        errorMessage.style.color = "red";
+
+        errorMessage.style.position = "relative"; // Set the position to relative
+        errorMessage.style.left = "80px"; // 
+
+        document.getElementById("transactionDetails").appendChild(errorMessage);
+      }
+
+    }
+
+    function submitRequest() {
+      var pinInput = document.getElementById("pinInput-request").value;
+      var recipient = document.getElementById("recipient").value;
+      var amount = parseFloat(document.getElementById("amountInput").value);
+      var message = document.getElementById("messageInput").value;
+      var nric = document.getElementById("nric").value;
+      var address = document.getElementById("address").value;
+      var reason = document.getElementById("reason").value;
+      var currency = document.getElementById("currencies").value;
+
+
+      if (pinInput === "1234") {
+        document.getElementById("request-Name").innerText = recipient;
+        document.getElementById("request-Amount").innerText = amount;
+        document.getElementById("request-Message").innerText = message;
+        document.getElementById("request-currencies").innerText = currency
+
+        // Set the values for (nric, address, reason) using innerText
+        document.getElementById("nric-request").innerText = nric;
+        document.getElementById("address-request").innerText = address;
+        document.getElementById("reason-request").innerText = reason;
+
+        displayDate();
+
+
+        alert("Transaction request submitted !\n\nAmount: " + amount + "\nRecipient:" + recipient + "\nThank you for choosing SKY TRANSACT! If you notice any unauthorized activity, please call our SkyTransact hotline at xxxx-xxxx");
+
+        document.getElementById("additionalInfo").style.display = "none";
+        document.getElementById("request-transaction").style.display = "block";
+
+
+
+      } else {
+        // If PIN is incorrect, show an error message 
+        var errorMessage = document.createElement("p");
+        errorMessage.textContent = "Incorrect PIN. Please try again.";
+        errorMessage.style.color = "red";
+        errorMessage.style.position = "relative"; // Set the position to relative
+        errorMessage.style.right = "-450px"; // 
+        errorMessage.style.top = "-85px"; // 
+        errorMessage.style.width = "fit-content"; // 
+
+
+        document.getElementById("additionalInfo").appendChild(errorMessage);
+
+
+      }
+    }
+
+  </script>
+
+  <script>
+
+    function displayDate() {
+      document.getElementById("currentdate-success").innerHTML = Date();
+      document.getElementById("currentdate-request").innerHTML = Date();
+    }
+  </script>
+
+
+
+</body>
+
+</html>

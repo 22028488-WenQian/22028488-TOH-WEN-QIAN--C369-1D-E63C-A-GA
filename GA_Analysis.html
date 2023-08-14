@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.75">
+  <title> Analysis page </title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background-color: black;
+    }
+
+    .left-screen {
+      width: 40%;
+      background-color: black;
+      float: left;
+      height: 110vh;
+    }
+
+    .left-screen img {
+      margin: 10px;
+      border-radius: 10px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .right-screen {
+
+      position: relative;
+      width: 60%;
+      background-color: black;
+      float: right;
+      height: 110vh;
+      /* Adjust the height as needed */
+
+      display: flex;
+
+    }
+
+    .left-screen h1 {
+      display: inline-block;
+      color: rgb(94, 94, 250);
+      margin-top: 20px;
+      vertical-align: middle;
+      font-size: 25px;
+      text-decoration: underline;
+      height: max-content;
+    }
+
+    .account-info {
+      font-size: 25px;
+      color: white;
+      padding: 20px;
+      margin: 5px;
+      font-weight: bold;
+      position: relative;
+      margin-top: 0;
+    }
+
+    .top-up button {
+      background-color: rgb(51, 168, 51);
+      width: auto;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 5px;
+    }
+
+    .Transaction-History h1 {
+      color: rgb(71, 176, 71);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+
+    }
+
+
+    .Transaction-History {
+      font-size: 10px;
+      font-weight: normal;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+
+    /* CSS styles for your page */
+    table {
+      width: 400px;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      border-radius: 10px;
+      background-color: #ddd;
+      margin: 5px;
+
+    }
+
+    th,
+    td {
+      padding: 2px;
+      text-align: left;
+    }
+
+
+
+
+
+    .interactive-section img {
+
+      width: 600px;
+      height: 600px;
+      border-radius: 10px;
+      position: absolute;
+      top: 150px;
+      left: 130px;
+
+    }
+
+
+
+
+    .Right-Buttons {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      /* To align the buttons in a row */
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+  <div class="left-screen">
+    <img src="SKY transact.png" alt="Account Image" width="50px" height="50px">
+    <h1>Account Information</h1>
+
+    <div class="account-info">
+      <p>User Name: Skyler Toh</p>
+      <p>Account Number: <input type="text" value="22028488" readonly></p>
+      <p>Public Key: <input type="text" value="iowh990998hwuidao124b" readonly></p>
+      <p class="private-field">Private Key: <input type="password" value="89h29fbeu29hdq0dhwfebfbeu424h29"
+          id="privateKey" readonly>
+        <button type="button" id="viewButton-privateKey" onclick="View('privateKey')">View</button>
+      </p>
+      <p class="private-field">Balance: <input type="password" value="$1000.00" id="balance" readonly>
+        <button type="button" id="viewButton-balance" onclick="View('balance')">View</button>
+      </p>
+
+      <div class="top-up">
+        <a href="GA_Top-up.html"><button type="button">Top Up Account</button></a>
+      </div>
+
+      <div class="Transaction-History">
+        <h1>Transaction History</h1>
+
+        <table>
+          <tr>
+            <th colspan="2">Transaction Details</th>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>01/06/2023</td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td>20:35</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td style="color:green;">Successful</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>$88.00</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td>SKY098831</td>
+          </tr>
+          <tr>
+            <td>Balance</td>
+            <td>$15,000.00</td>
+          </tr>
+        </table>
+
+
+        <table>
+          <tr>
+            <th colspan="2">Transaction Details</th>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>01/06/2023</td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td>20:35</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td style="color:green;">Successful</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>$88.00</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td>SKY098831</td>
+          </tr>
+          <tr>
+            <td>Balance</td>
+            <td>$15,000.00</td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <th colspan="2">Transaction Details</th>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>01/06/2023</td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td>20:35</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td style="color:green;">Successful</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>$88.00</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td>SKY098831</td>
+          </tr>
+          <tr>
+            <td>Balance</td>
+            <td>$15,000.00</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-screen">
+
+
+    <div class="Right-Buttons">
+      <a href="GA_Local.html">
+        <img src="Home.png" alt="home button"
+          style="height:20px ; width: 20px;margin-right: 10px; background-color: rgb(26, 76, 238); padding: 10px;"></a>
+
+      <a href="GA_Analysis.html">
+        <img src="Chart.png" alt="chart button"
+          style="height:20px ; width: 20px;margin-right: 10px; background-color: rgb(26, 76, 238); padding: 10px;"></a>
+
+
+      <a href="index.html">
+        <img src="logout.png" alt=" log out button"
+          style="height:20px ; width: 20px;margin-right: 10px; background-color: rgb(26, 76, 238); padding: 10px;"></a>
+
+    </div>
+
+    <div class="interactive-section">
+
+      <img src="piechart.png" alt="piechart">
+
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

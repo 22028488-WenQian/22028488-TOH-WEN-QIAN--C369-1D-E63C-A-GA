@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            width: 100%;
+            overflow-x: hidden
+        }
+
+        h1 {
+            color: aliceblue;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 50px;
+            position: relative;
+            left: 20px;
+        }
+
+        h2 {
+            color: white;
+            font-size: 25px;
+            position: relative;
+            left: 70px;
+            bottom: 30px;
+        }
+
+        h3 {
+
+            color: rgb(75, 77, 224);
+            font-size: 25px;
+            position: relative;
+            left: 10px;
+            bottom: 30px;
+            font-size: 50px;
+
+        }
+
+       
+
+        h4 {
+            color: black;
+            font-size: 20px;
+            margin-bottom: 0px;
+
+        }
+
+
+        p {
+
+            position: relative;
+            top: -50px;
+            color: rgb(72, 72, 222);
+            font-size: 40px;
+
+        }
+
+        p1 {
+            color: white;
+            font-size: 30px;
+        }
+
+        p2 {
+            color: black;
+            font-size: 20px;
+            margin-bottom: 10px;
+
+        }
+
+        .image-container {
+            display: flex;
+            position: relative;
+            align-items: flex-end; /*align item to the bottom */
+            margin-left: 50px;
+        }
+
+        .image-container img {
+            height: 80px;
+            margin-right: 80px;
+        }
+
+        .image-container img:last-child {
+            margin-right: 0;
+        }
+
+        .image-container hr {
+            position: absolute;
+            bottom: 80px;
+            width: 75%;
+            height: 2px;
+            background-color: white;
+            margin: auto;
+        }
+
+
+
+        .image-container figure {
+            position: relative;
+            top: 60px;
+            width: 80px;
+        }
+
+        .image-container figcaption {
+            position: absolute;
+            bottom: -30px;
+            right: 10px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+        }
+
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 120%;
+            align-items: center;
+
+        }
+
+        .button-container img {
+
+            height: 50px;
+            margin-right: 10px;
+
+        }
+
+        .singpass-signup button,
+        .singpass-signin button {
+            display: block;
+            padding: 10px 30px;
+            background-color: rgb(232, 59, 59);
+            font-size: 30px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            /* Add spacing between buttons */
+            text-decoration: none;
+            border: none;
+
+        }
+
+        .email-signup button,
+        .email-signin button {
+            display: block;
+            padding: 10px 55px;
+            width: 100%;
+            background-color: rgb(51, 51, 232);
+            font-size: 30px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            /* Add spacing between buttons */
+            text-decoration: none;
+            border: none;
+
+        }
+
+
+
+
+        .email-signin a,
+        .email-signup a {
+            text-decoration: none;
+            /* Remove underline */
+        }
+
+        .singpass-signin a,
+        .singpass-signup a {
+            text-decoration: none;
+            /* Remove underline */
+        }
+
+
+
+        .parent-container {
+            display: flex;
+            align-items: flex-start;/*aglin item to the top */
+            width: 90%;
+        }
+
+        .intro-section {
+
+            width: 50%;
+            padding: 80px;
+            margin: 20px;
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+        }
+
+        .login-section {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            background-color: rgb(234, 237, 241);
+            border-radius: 5px;
+            position: relative;
+            top: -60px;
+
+        }
+
+        footer {
+            text-align: center;
+            position:relative;
+            top:20px;
+
+        }
+
+        footer p {
+            color: aliceblue;
+            font-size: 30px;
+        }
+
+        footer a {
+            color: aliceblue;
+            font-size: 20px;
+            margin-right: 15px;
+            justify-content: center;
+            position:relative;
+            top:-50px;
+
+        }
+
+        hr{
+            background-color: rgb(18, 18, 18);
+            border:none;
+            height: 2px;
+            width:410px;
+            position:relative;
+            left:-10px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Transact's Welcome Page</title>
+
+</head>
+
+<body>
+
+    <!-- Heading with the Sky Transact logo -->
+
+    <h1> SKY TRANSACT
+        <img src="SKY transact.png" alt="logo"
+            style="margin-right:20px;float:left;width:100px;height:100px;border-radius: 20px;">
+    </h1>
+
+    <h2> Where Payment Takes Flight</h2>
+
+    <div class="parent-container">
+
+        <!-- intro section -->
+
+        <div class="intro-section">
+
+            <!-- Paragraph describing Sky Transact -->
+            <p>Unlock the skies of seamless payment with Sky Transact!</p>
+            <p1>The easy way to handle payments. Fast, secure, and hassle-free transactions for you. Accept
+                multiple payment methods, go global, and get valuable insights. Join us and simplify your payments
+                today.
+            </p1>
+
+            <!-- Container for images with captions -->
+            <div class="image-container">
+                <figure>
+                    <img src="Local.png" alt="local">
+                    <figcaption>Local Transfer</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="International.png" alt="International">
+                    <figcaption>International Transfer</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="currencies.png" alt="currency">
+                    <figcaption>Currency Exchange</figcaption>
+                </figure>
+                <hr>
+            </div>
+        </div>
+
+        <!-- login section  -->
+        <div class="login-section">
+
+            <!-- Login heading with the Sky Transact logo -->
+            <h3>login
+                <img src="SKY transact.png" alt="logo"
+                    style="margin-right:20px;float:left;width:60px;height:60px;border-radius: 10px;">
+
+            </h3>
+
+            <!-- Singpass login button -->
+
+            <div class="singpass-signin">
+                <div class="button-container">
+                    <img src="singpass.png" alt="Singpass Icon">
+
+                    <a href="GA_Local.html"><button type="sign in button">Sign in with Singpass</button></a>
+                </div>
+            </div>
+
+            <!-- Email login button -->
+            <div class="email-signin">
+                <div class="button-container">
+                    <img src="email.png" alt="Email Icon">
+
+                    <a href="GA_Local.html"><button type="sign in button">Sign in with Email</button></a>
+
+                </div>
+            </div>
+
+            <hr>
+            <!-- Sign-up options -->
+            <h4>Don't have an account?</h4>
+            <p2>Sign up with us to get started.</p2>
+
+            <!-- Singpass sign-up button -->
+
+            <div class="singpass-signup">
+
+                <a href="GA_Local.html"><button type="sign up button">Sign up with Singpass</button></a>
+            </div>
+
+            <!-- Email sign-up button -->
+
+            <div class="email-signup">
+                <a href="GA_SignUp.html"><button type="sign up button">Sign up with Email</button></a>
+            </div>
+        </div>
+    </div>
+
+    <footer >
+
+        <p>&copy; 2023 SkyTransact. All rights reserved.</p>
+        <a href="GA_Aboutus.html">About us</a>
+        <a href="GA_Services.html">Services</a>
+        <a href="GA_ContactUs.html">Contact Us</a>
+
+
+    </footer>
+
+</body>
+
+</html>

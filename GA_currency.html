@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.75">
+  <title> Currency Converter  Page </title>
+
+  <style>
+
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background-color: rgb(39, 182, 26);
+    }
+
+    .left-screen {
+      width: 40%;
+      background-color: black;
+      float: left;
+      height: 110vh; 
+    }
+
+    .left-screen img {
+      margin: 10px;
+      border-radius: 10px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .right-screen {
+
+      position: relative;
+      width: 60%;
+      height: 110vh; /* Adjust the height as needed */
+      display:flex;
+      align-items:center;
+    }
+
+    .left-screen h1 {
+      display: inline-block;
+      color: rgb(94, 94, 250);
+      margin-top: 20px;
+      vertical-align: middle;
+      font-size: 25px;
+      text-decoration: underline;
+      height:max-content
+    }
+
+    .account-info {
+      font-size: 25px;
+      color: white;
+      padding: 20px;
+      margin: 5px;
+      font-weight: bold;
+      position: relative;
+      margin-top: 0;
+    }
+
+    .top-up button {
+      background-color: rgb(51, 168, 51);
+      width: auto;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .Transaction-History h1 {
+      color: rgb(71, 176, 71);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+
+    }
+
+
+    .Transaction-History{
+      font-size: 10px;
+      font-weight: normal;
+      color:black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+    }
+
+     
+     table {
+      width: 400px;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      border-radius: 10px;
+      background-color: #ddd;
+      margin: 5px;
+      
+    }
+    
+    th, td {
+      padding: 2px;
+      text-align: left;
+    }
+
+    .image-container {
+            display: flex;
+            position:relative;
+            top:-300px;
+            right:-150px;
+       
+      
+    
+        }
+
+        .image-container img {
+            height: 80px;
+            width:80px;
+
+        }
+
+    
+
+        .image-container figcaption {
+            position: absolute;
+            bottom: -30px;
+            right: -10px;
+            width: 150%;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+        }
+
+
+        
+
+     
+
+  .image-container figure {
+    position:relative;
+    width: 100px;
+    margin:70px;
+  }
+
+  .interactive-section{
+
+  background-color: white;
+  width: 100%;
+  height:550px;
+  border-radius: 10px;
+  position: absolute;
+  left:0px;
+  top: 200px; /* Adjust distance from the images */
+  justify-content: center;
+  }
+
+
+
+
+  
+  .Right-Buttons{
+    position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex; /* To align the buttons in a row */
+    
+  }
+
+  
+    .input-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      padding:20px;
+      
+   
+    }
+    .input-container label {
+      font-size: 25px;
+      font-weight: bolder;
+      flex:1;
+      margin-left: 40px;
+      margin-right: 40px;
+     
+    
+    
+    }
+    .input-container input {
+     
+      flex-grow: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      position: relative;
+      display:flex;
+      height: 30px;
+      width: 40%;
+    }
+    .convert-btn {
+      display: block;
+      width: 40%;
+      background-color: #4CAF50;
+      font-size: 20px;
+      color: white;
+      font-weight: bolder;
+      padding: 20px;
+      border: none;
+      border-radius: 5px;
+      position: relative;
+      right:-220px;
+     
+    }
+    .result {
+      font-weight: bold;
+      position: relative;
+      font-size: 20px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: rgb(50, 94, 189);
+      text-align: center;
+
+    }
+
+    .input-container select {
+      display: flex;
+      width: 30%;
+      height:50px;
+      flex-grow: 1;
+      font-size: 15px;
+    }
+
+    .interactive-section h2{
+
+      padding: 20px;
+      width: 680px;
+      color: aliceblue;
+      background-color: #438b29;
+      position: relative;
+      right: 0px;
+      top:-20px;
+      border-top-left-radius:5px;
+      border-top-right-radius:5px ;
+   
+      text-align: center;
+  
+
+    }
+
+   
+
+
+
+  </style>
+  <script>
+    function View(elementId) {
+      var privateField = document.getElementById(elementId);
+      var viewButton = document.getElementById("viewButton-" + elementId);
+
+      if (privateField.type === "password") {
+        privateField.type = "text";
+        viewButton.innerText = "Hide";
+      } else {
+        privateField.type = "password";
+        viewButton.innerText = "View";
+      }
+    }
+  </script>
+
+</head>
+<body>
+
+  
+
+ <!-- Left section -->
+
+
+  <div class="left-screen">
+    
+     <!-- Account Information -->
+
+    <img src="SKY transact.png" alt="Account Image" width="50px" height="50px">
+    <h1>Account Information</h1>
+
+
+        <!-- Display account information -->
+
+    <div class="account-info">
+      <p>User Name: Skyler Toh</p>
+      <p>Account Number: <input type="text" value="22028488" readonly></p>
+      <p>Public Key: <input type="text" value="iowh990998hwuidao124b" readonly></p>
+      <p class="private-field">Private Key: <input type="password" value="89h29fbeu29hdq0dhwfebfbeu424h29" id="privateKey" readonly>
+        <button type="button" id="viewButton-privateKey" onclick="View('privateKey')">View</button>
+      </p>
+      <p class="private-field">Balance: <input type="password" value="$1000.00" id="balance" readonly>
+        <button type="button" id="viewButton-balance" onclick="View('balance')">View</button>
+      </p>
+
+      <!-- Top up account button -->
+
+      <div class="top-up">
+        <a href="GA_Top-up.html"><button type="button">Top Up Account</button></a>
+      </div>
+
+      <!-- Transaction history table -->
+
+      <div class="Transaction-History">
+        <h1>Transaction History</h1>
+
+        <table>
+          <tr>
+            <th colspan="2">Transaction Details</th>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>01/06/2023</td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td>20:35</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td style="color:green;">Successful</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>$88.00</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td>SKY098831</td>
+          </tr>
+          <tr>
+            <td>Balance</td>
+            <td>$15,000.00</td>
+          </tr>
+        </table>
+        
+
+        <table>
+          <tr>
+            <th colspan="2">Transaction Details</th>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>01/06/2023</td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td>20:35</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td style="color:green;">Successful</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>$88.00</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td>SKY098831</td>
+          </tr>
+          <tr>
+            <td>Balance</td>
+            <td>$15,000.00</td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <th colspan="2">Transaction Details</th>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>01/06/2023</td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td>20:35</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td style="color:green;">Successful</td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td>$88.00</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td>SKY098831</td>
+          </tr>
+          <tr>
+            <td>Balance</td>
+            <td>$15,000.00</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Right section -->
+
+  <div class="right-screen">
+
+     <!-- Home, Chart, Logout buttons -->
+
+    <div class = "Right-Buttons">
+      <a href="GA_Local.html">
+        <img src="Home.png" alt="home button" style="height:20px ; width: 20px;margin-right: 10px; background-color: rgb(26, 76, 238); padding: 10px;"></a>
+        
+        <a href="GA_Analysis.html">
+          <img src="Chart.png" alt="chart button" style="height:20px ; width: 20px;margin-right: 10px; background-color: rgb(26, 76, 238); padding: 10px;"></a>
+    
+    
+          <a href="index.html">
+            <img src="logout.png" alt="home button" style="height:20px ; width: 20px;margin-right: 10px; background-color: rgb(26, 76, 238); padding: 10px;"></a>
+        
+      </div>
+
+      <!--local , international , currencies options -->
+    <div class="image-container">
+      <figure>
+
+        <img src="Local.png" alt="local">
+        <a href="GA_Local.html">
+          <figcaption><img src="select.png" alt="local" style="height:15px ; width: 15px; margin-right: 5px;">Local Transfer</figcaption></a>
+      </figure>
+      
+      <figure>
+        
+          <img src="International.png" alt="International">
+       
+          <a href="GA_International.html">
+          <figcaption><img src="select.png" alt="local" style="height:15px ; width: 15px;margin-right: 5px;">International Transfer</figcaption></a>
+      </figure> 
+      
+      <figure>
+       
+          <img src="currencies.png" alt="currency">
+  
+          <a href="GA_currency.html">
+          <figcaption><img src="select.png" alt="local" style="height:15px ; width: 15px;margin-right: 5px;">Currency Exchange</figcaption></a>
+      </figure>
+
+       <!-- Interactive section for recipient and transaction forms -->
+
+      <div class="interactive-section">
+        
+        <h2>Currency Converter</h2>
+        <div class="input-container">
+          <label for="fromCurrency">From:</label>
+          <input type="number" id="Amount" placeholder="Enter amount" />
+        </div>
+        <div class="input-container">
+          <label for="from">From Currency:</label>
+          <select id="from">
+            <option value="MYR">MYR</option>
+            <option value="EUR">EUR</option>
+            <option value="AUD">AUD</option>
+            <option value="CNY">CNY</option>
+            <option value="SGD">SGD</option>
+            <option value="AED">AED</option>
+            <option value="JPY">JPY</option>
+          
+          </select>
+        </div>
+        <div class="input-container">
+          <label for="to">To Currency:</label>
+          <select id="to">
+            <option value="MYR">MYR</option>
+            <option value="EUR">EUR</option>
+            <option value="AUD">AUD</option>
+            <option value="CNY">CNY</option>
+            <option value="SGD">SGD</option>
+            <option value="AED">AED</option>
+            <option value="JPY">JPY</option>
+           
+            
+          </select>
+        </div>
+        <button class="convert-btn" onclick="convertCurrency()">Convert</button>
+        <p class="result" id="conversionResult"></p>
+      </div>
+
+
+      <script>
+
+         //  function to perform currency conversion based on user inputs.
+         //used ExhangeRate-API 
+         //used chatGPT to guide me on how to complete this function 
+        function convertCurrency() {
+
+          // Get the "from" currency,  "to" currency, and amount to be converted.
+
+          var fromCurrency = document.getElementById("from").value;
+          var toCurrency = document.getElementById("to").value;
+          var fromAmount = document.getElementById("Amount").value;
+    
+          // api key from https://app.exchangerate-api.com/dashboard
+          var apiKey = "f90e642c53b4da6e8fa478f2"; 
+          
+          // Construct the API URL with source currency, target currency, and amount.
+          // /pair/ = compare the 2 currencies 
+          //${} used to insert the valu of the api key, fromCurrency , toCurrency and fromAmount into the URL string
+      
+          var url = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${fromCurrency}/${toCurrency}/${fromAmount}`;
+    
+          // Fetch exchange rate data from the API.
+          //fetch is used to get data from a server 
+          fetch(url)
+      
+
+          //then is used to handle the successful respon from fetch
+            .then((response) => response.json())
+            //json = translator to translate the data sent by the website 
+            .then((data) => {
+
+
+               // If API call is successful
+              if (data.result === 'success') {
+
+                // Display the conversion result on the webpage.
+                document.getElementById("conversionResult").innerText = fromAmount + " " + fromCurrency + " = " + data.conversion_result.toFixed(2) + " " + toCurrency;
+              } else {
+
+                 // Display an error message if API call is not successful.
+         
+                document.getElementById("conversionResult").innerText = 'Error: ' + data['error-type'];
+              }
+            })
+            //catch is used to handle errors that occurs 
+            .catch((error) => {
+
+                // Display an error message if there's an issue with fetching data.
+              document.getElementById("conversionResult").innerText = 'Error: ' + error;
+            });
+        }
+      </script>
+
+
+
+
+</body>
+</html>

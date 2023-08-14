@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75">
+
+    <title>SKY Transact Account Sign-Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            text-align: center;
+
+        }
+
+        .signup-section {
+            width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid grey;
+            border-radius: 5px;
+            position: relative;
+            top: 90px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 70%;
+            height: 50px;
+            padding: 8px;
+            border: 1px solid #b3b1b1;
+            border-radius: 5px;
+            color: rgb(1, 6, 10);
+            background-color: aliceblue;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #25b522;
+            color: aliceblue;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            height: 60px;
+            width: 200px;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        .signup-section img {
+            margin: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .signup-section h1 {
+            display: inline-block;
+            color: rgb(246, 246, 248);
+            margin-top: 25px;
+            vertical-align: middle;
+            font-size: 30px;
+            text-align: center;
+
+        }
+
+        .signup-section label {
+
+            color: aliceblue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="signup-section">
+
+        <h1> <img src="SKY transact.png" alt="Account Image" width="50px" height="50px">
+            SIGN UP AN ACCOUNT </h1>
+
+
+
+        <div class="signup-input">
+            <label for="full-name">User Name:</label>
+            <input type="text" placeholder="Enter UserName" >
+        </div>
+
+        <div class="signup-input">
+            <label for="email">Email:</label>
+            <input type="email" placeholder=" Enter email" >
+
+        </div>
+
+        <div class="signup-input">
+            <label>Password:</label>
+            <input type="password" placeholder=" Enter password" >
+        </div>
+
+        <div class="signup-input">
+            <label>Upload NRIC Photo: </label>
+            <input type="file" >
+        </div>
+
+        <button onclick=loginSuccess()>Sign Up</button>
+
+    </div>
+
+    <script>
+
+        function loginSuccess() {
+
+            // Prevent the default form submission behavior
+            alert('Sign up successful!');
+
+            //asked chatGPT how to direct me to another page when i click the ok button in the alert message 
+            window.location.href = 'GA_Local.html';
+
+        };
+
+    </script>
+</body>
+
+</html>
